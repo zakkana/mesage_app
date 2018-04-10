@@ -4,5 +4,6 @@ class PagesController < ApplicationController
   end
 
   def show
+    flash.now[:notice] = "ようこそ。　本日は#{Date.today}です"
   end
 end
