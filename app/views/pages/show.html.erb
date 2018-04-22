@@ -1,2 +1,8 @@
 <h1>こんにちは、<%= current_user.username %>さん</h1>
-<p>ユーザー用ページです</p>
+<p>ユーザーネーム一覧</p>
+
+<% @users.each do |user| %>
+  <% if current_user.username != user.username %>
+    <h2><%= user.username %></h2>
+  <% end %>
+<% end %>
