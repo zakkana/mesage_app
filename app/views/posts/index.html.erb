@@ -1,0 +1,22 @@
+<h1>グループ一覧</h1>
+
+<table>
+  <tr>
+    <th>Title</th>
+    <th>Text</th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @posts.each do |post| %>
+  <tr>
+    <td><%= post.title %></td>
+    <td><%= post.text %></td>
+    <td><%= link_to '参加する', post %></td>
+    <td><%= link_to '編集', edit_post_path(post) %></td>
+    <td><%= link_to '削除', post_path(post),
+    method: :delete, data: { confirm: 'よろしいですか?' } %></td>
+  </tr>
+<% end %>
+<%= link_to '戻る', posts_path %>
+</table>

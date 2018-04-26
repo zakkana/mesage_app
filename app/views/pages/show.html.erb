@@ -3,6 +3,6 @@
 
 <% @users.each do |user| %>
   <% if current_user.username != user.username %>
-    <h2><%= user.username %></h2>
+    <h2><%=link_to user.username, 'page' %></h2>
   <% end %>
 <% end %>
