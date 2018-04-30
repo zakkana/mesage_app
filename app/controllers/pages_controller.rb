@@ -11,7 +11,7 @@ class PagesController < ApplicationController
 
   def create
     @user = User.find(params[:username])
-    @post = @user.comments.create(params[:poster].permit(:poster))
+    @post = @user.posts.create(params[:poster].permit(:poster))
     redirect_to post_path(@user)
   end
 end
