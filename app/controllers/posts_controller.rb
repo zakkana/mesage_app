@@ -1,5 +1,7 @@
 class PostsController < ApplicationController
-  before_action :set_current_user
+
+  http_basic_authenticate_with name: "dhh", password: "secret", except: [:index, :show]
+
   def new
     @post = Post.new
   end
@@ -27,7 +29,7 @@ class PostsController < ApplicationController
   end
   def create
     @post = Post.new(params[:post].permit(:title, :text))
-    
+
     if @post.save
       redirect_to @post
     else

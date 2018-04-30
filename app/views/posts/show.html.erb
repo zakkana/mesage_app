@@ -6,27 +6,8 @@
   <%= @post.text %>
 </p>
 
-<h2><% @post.comments.each do |comment| %>
-  <p>
-    <strong><%= comment.commenter %></strong>
-    <%= comment.body %>
-  </p>
-</h2>
-<% end %>
-
-<%= form_for([@post, @post.comments.build]) do |f| %>
-  <p>
-    <%= f.label :commenter %><br />
-    <%= f.text_field :commenter %>
-  </p>
-  <p>
-    <%= f.label :body , 'コメント' %><br />
-    <%= f.text_area :body %>
-  </p>
-  <p>
-    <%= f.submit %>
-  </p>
-<% end %>
+<%= render @post.comments %>
+<%= render "comments/form" %>
 
 <%= link_to '編集', edit_post_path(@post) %> |
 <%= link_to '投稿一覧に戻る', posts_path %>
