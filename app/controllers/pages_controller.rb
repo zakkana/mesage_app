@@ -5,13 +5,7 @@ class PagesController < ApplicationController
   end
 
   def show
-    flash.now[:notice] = "ようこそ。　本日は#{Date.today}です"
     @users = User.all
   end
 
-  def create
-    @user = User.find(params[:username])
-    @post = @user.posts.create(params[:poster].permit(:poster))
-    redirect_to post_path(@user)
-  end
 end

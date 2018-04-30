@@ -1,6 +1,14 @@
 <h1>グループの編集</h1>
 
 <%= render 'form' %>
+<%= form_for(@image) do |f| %>
+  <div class="field">
+    <%= f.file_field :file %>
+  </div>
+  <div class="actions">
+    <%= f.submit "Upload" %>
+  </div>
+<% end %>
 <td><%= link_to '削除', post_path(@post),
 method: :delete, data: { confirm: 'よろしいですか?' } %></td>
 <%= link_to 'Back', posts_path %>

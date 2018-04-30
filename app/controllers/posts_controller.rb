@@ -28,7 +28,7 @@ class PostsController < ApplicationController
     end
   end
   def create
-    @post = Post.new(params[:post].permit(:title, :text))
+    @post = Post.new(params[:post].permit(:title, :text, :post_by))
 
     if @post.save
       redirect_to @post
